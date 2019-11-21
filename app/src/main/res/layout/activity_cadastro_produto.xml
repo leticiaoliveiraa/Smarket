@@ -79,10 +79,13 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/button_cadastro_produto"
         android:textSize="20dp"
         android:layout_margin="8dp"
-        android:layout_gravity="right"
+        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Salvar"/>
+        android:text="Salvar"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/cardview_light_background"/>
 </LinearLayout>

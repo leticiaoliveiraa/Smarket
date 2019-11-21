@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textAlignment="center"
+            android:textSize="35dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login Administrador"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_margin="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        
+        <TextView
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Senha"/>
+
+        <EditText android:id="@+id/editText-senha-administrador"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/botao_login_admin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text= "Entrar"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/cardview_light_background"
+        />
+</LinearLayout>
