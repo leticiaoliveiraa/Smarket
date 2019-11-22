@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="16dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#FFFFFF">
 
 
     <ImageView
@@ -28,7 +29,8 @@
             android:padding="10dp"
             android:text="Administrador"
             android:textColor="@android:color/background_light"
-            android:background="@drawable/roundedbutton" />
+            android:background="@drawable/roundedbutton"
+            android:fontFamily="@font/opensanscondensed_bold"/>
 
         <Button
             android:id="@+id/cliente_button"
@@ -38,7 +40,8 @@
             android:padding="10dp"
             android:background="@drawable/roundedbutton"
             android:text="Cliente"
-            android:textColor="@android:color/background_light" />
+            android:textColor="@android:color/background_light"
+            android:fontFamily="@font/opensanscondensed_bold"/>
 
     </LinearLayout>
 
