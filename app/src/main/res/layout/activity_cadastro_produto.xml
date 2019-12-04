@@ -18,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <TextView
             android:textSize="20sp"
             android:layout_width="wrap_content"
@@ -25,9 +26,31 @@
             android:text="Nome:"
             android:fontFamily="@font/opensanscondensed_light"/>
 
-        <EditText android:id="@+id/editText-nome"
+        <EditText android:id="@+id/editText_nome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:fontFamily="@font/opensanscondensed_light"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Categoria:"
+            />
+
+        <EditText android:id="@+id/editText_categoria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensanscondensed_light"
+            android:hint="Frios, padaria, hortifruti, grãos, bebidas, limpeza, bomboniere"/>
+
     </LinearLayout>
 
     <LinearLayout
@@ -42,7 +65,7 @@
             android:text="Preço:"
             android:fontFamily="@font/opensanscondensed_light"/>
 
-        <EditText android:id="@+id/editText-preco"
+        <EditText android:id="@+id/editText_preco"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>
@@ -59,7 +82,7 @@
             android:text="Marca:"
             android:fontFamily="@font/opensanscondensed_light"/>
 
-        <EditText android:id="@+id/editText-marca"
+        <EditText android:id="@+id/editText_marca"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>
@@ -89,7 +112,7 @@
             android:text="Data de validade:"
             android:fontFamily="@font/opensanscondensed_light"/>
 
-        <EditText android:id="@+id/editText-data"
+        <EditText android:id="@+id/editText_data"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"

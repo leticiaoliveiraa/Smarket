@@ -11,8 +11,7 @@ public class Produtos implements Serializable {
     String marca;
     String dataValidade;
 
-    public Produtos(int id, String nome, String categoria, Double preco, String marca, String dataValidade) {
-        this.id = id;
+    public Produtos(String nome, String categoria, Double preco, String marca, String dataValidade) {
         this.nome = nome;
         this.categoria = categoria;
         this.preco = preco;
