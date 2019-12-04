@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         buttoncli.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                Intent activityChangeIntent = new Intent(MainActivity.this, CatalogoClienteActivity.class);
+                Intent activityChangeIntent = new Intent(MainActivity.this, ListaComprasActivity.class);
                 MainActivity.this.startActivity(activityChangeIntent);
             }
         });

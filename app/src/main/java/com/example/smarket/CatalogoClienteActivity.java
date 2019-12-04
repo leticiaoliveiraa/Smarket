@@ -12,10 +12,12 @@ public class CatalogoClienteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalogo_cliente);
+
+
     }
         @Override
         public boolean onCreateOptionsMenu(Menu menu) {
-            getMenuInflater().inflate(R.menu.menu_cliente, menu);
+            getMenuInflater().inflate(R.menu.menu_opcoes_cliente, menu);
             return super.onCreateOptionsMenu(menu);
         }
 
