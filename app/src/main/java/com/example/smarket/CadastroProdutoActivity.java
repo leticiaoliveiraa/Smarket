@@ -28,15 +28,18 @@ public class CadastroProdutoActivity extends AppCompatActivity {
 
                 String nome = editTextNome.getText().toString();
                 String categoria = editTextCategoria.getText().toString();
-                Double preco = Double.parseDouble(editTextPreco.getText().toString());
+                double preco = Double.parseDouble(editTextPreco.getText().toString());
                 String marca = editTextMarca.getText().toString();
                 String data = editTextDataValidade.getText().toString();
 
                 ProdutosDAO dao = new ProdutosDAO(CadastroProdutoActivity.this);
 
                 Produtos produto = new Produtos(nome, categoria ,preco, marca, data);
+                System.out.println(produto.getNome());
+                dao.salvar(produto);
+
                 Toast.makeText(getApplicationContext(), "Produto cadastrado", Toast.LENGTH_LONG);
-                Intent intent = new Intent(CadastroProdutoActivity.this, CatalogoClienteActivity.class);
+                Intent intent = new Intent(CadastroProdutoActivity.this, CatalogoAdminActivity.class);
                 startActivity(intent);
             }
         });
