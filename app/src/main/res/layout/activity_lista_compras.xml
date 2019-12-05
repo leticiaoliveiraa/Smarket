@@ -10,7 +10,7 @@
         <ListView
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@id/view_bottom"
-            android:id="@+id/listView-catalogo"
+            android:id="@+id/listView_ListaCompras"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
