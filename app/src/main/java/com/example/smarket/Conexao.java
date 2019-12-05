@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class Conexao extends SQLiteOpenHelper {
 
     public Conexao(Context context) {
-        super(context, "LISTACOMPRAS", null, 2);
+        super(context, "LISTACOMPRAS", null, 3);
     }
 
     @Override
