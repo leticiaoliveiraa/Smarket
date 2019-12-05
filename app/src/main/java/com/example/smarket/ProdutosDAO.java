@@ -29,7 +29,7 @@ public class ProdutosDAO {
         ContentValues dados = new ContentValues();
         dados.put("NOME", produto.getNome());
         dados.put("PRECO", produto.getPreco());
-        dados.put("DATAVALIDADE", produto.dataValidade);
+        dados.put("DATAVALIDADE", produto.getDataValidade());
         dados.put("MARCA", produto.getMarca());
 
         return dados;
@@ -47,13 +47,12 @@ public class ProdutosDAO {
 
             int id = cursor.getInt(cursor.getColumnIndex("ID"));
             String nome = cursor.getString(cursor.getColumnIndex("NOME"));
-            double preco = cursor.getDouble(cursor.getColumnIndex("PRECO"));
             String categoria = cursor.getString(cursor.getColumnIndex("CATEGORIA"));
+            double preco = cursor.getDouble(cursor.getColumnIndex("PRECO"));
             String data = cursor.getString(cursor.getColumnIndex("DATAVALIDADE"));
             String marca = cursor.getString(cursor.getColumnIndex("MARCA"));
 
-            list.add(new Produtos(nome, categoria, preco, marca, data));
-
+            list.add(new Produtos(nome,categoria,preco,marca,data));
         }
 
         cursor.close();
