@@ -48,8 +48,11 @@ public class ProdutosDAO {
             int id = cursor.getInt(cursor.getColumnIndex("ID"));
             String nome = cursor.getString(cursor.getColumnIndex("NOME"));
             double preco = cursor.getDouble(cursor.getColumnIndex("PRECO"));
+            String categoria = cursor.getString(cursor.getColumnIndex("CATEGORIA"));
             String data = cursor.getString(cursor.getColumnIndex("DATAVALIDADE"));
             String marca = cursor.getString(cursor.getColumnIndex("MARCA"));
+
+            list.add(new Produtos(nome, categoria, preco, marca, data));
 
         }
 
