@@ -8,22 +8,51 @@ import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.ListView;
 
 import java.util.List;
 
 public class ListaComprasActivity extends AppCompatActivity {
 
-    private ArrayAdapter adapter;
+    private AdapterListaComprasCliente adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_compras);
 
-        adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1);
         ListView listView = findViewById(R.id.listView_ListaCompras);
+        List<Produtos> lista = new ListaDeComprasDAO(this).listarProdutos();
+        adapter = new AdapterListaComprasCliente(lista, this);
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int itemIndex, long l) {
+                // Get user selected item.
+                Object itemObject = adapterView.getAdapter().getItem(itemIndex);
+
+                // Translate the selected item to DTO object.
+                Produtos itemDto = (Produtos) itemObject;
+
+                // Get the checkbox.
+                CheckBox itemCheckbox = (CheckBox) view.findViewById(R.id.list_view_item_checkbox);
+
+                // Reverse the checkbox and clicked item check state.
+                if(itemDto.isChecked())
+                {
+                    itemCheckbox.setChecked(false);
+                    itemDto.setChecked(false);
+                }else
+                {
+                    itemCheckbox.setChecked(true);
+                    itemDto.setChecked(true);
+                }
+
+                //Toast.makeText(getApplicationContext(), "select item text : " + itemDto.getItemText(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
         listView.setAdapter(adapter);
         registerForContextMenu(listView);
 
@@ -42,9 +71,7 @@ public class ListaComprasActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        List<Produtos> lista = new ListaDeComprasDAO(this).listarProdutos();
-        adapter.clear();
-        adapter.addAll(lista);
+        adapter.atualiza(new ListaDeComprasDAO(this).listarProdutos());
     }
 
     @Override
