@@ -38,10 +38,7 @@ public class CatalogoClienteActivity extends AppCompatActivity {
 
         @Override
         public boolean onOptionsItemSelected(MenuItem item){
-            if(item.getItemId() == R.id.menu_item_lista_compras){
-                Intent intent = new Intent(CatalogoClienteActivity.this,ListaComprasActivity.class);
-                startActivity(intent);
-            }
+
 
             return super.onOptionsItemSelected(item);
         }
