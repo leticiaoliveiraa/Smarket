@@ -11,6 +11,11 @@ import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.ListView;
 
+import com.example.smarket.Activity.CatalogoClienteActivity;
+import com.example.smarket.BD.DaoLista;
+import com.example.smarket.BD.ProdutosDAO;
+import com.example.smarket.Objetos.Produtos;
+
 import java.util.List;
 
 public class ListaComprasActivity extends AppCompatActivity {
@@ -23,7 +28,7 @@ public class ListaComprasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lista_compras);
 
         ListView listView = findViewById(R.id.listView_ListaCompras);
-        List<Produtos> lista = new ListaDeComprasDAO(this).listarProdutos();
+        List<Produtos> lista = new ProdutosDAO(this).listarProdutos();
         adapter = new AdapterListaComprasCliente(lista, this);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -71,7 +76,7 @@ public class ListaComprasActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        adapter.atualiza(new ListaDeComprasDAO(this).listarProdutos());
+        adapter.atualiza(new ProdutosDAO(this).listarProdutos());
     }
 
     @Override
@@ -88,8 +93,8 @@ public class ListaComprasActivity extends AppCompatActivity {
         Produtos p = (Produtos) adapter.getItem(contextMenuInfo.position);
 
         if(item.getItemId() == R.id.cliente_apagar){
-            ListaDeComprasDAO bd = new ListaDeComprasDAO(this);
-            bd.apagarProduto(p);
+            ProdutosDAO bd = new ProdutosDAO(this);
+            bd.remover(p);
             onResume();
         }
 

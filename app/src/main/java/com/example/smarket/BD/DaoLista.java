@@ -1,5 +1,6 @@
 package com.example.smarket.BD;
 
+import com.example.smarket.ListaComprasActivity;
 import com.example.smarket.Objetos.Produtos;
 
 import java.util.ArrayList;
@@ -9,4 +10,6 @@ public class DaoLista {
 
     public static List<Produtos> lista = new ArrayList<>();
 
+    public DaoLista(ListaComprasActivity listaComprasActivity) {
+    }
 }

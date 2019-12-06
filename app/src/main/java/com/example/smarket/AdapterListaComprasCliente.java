@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-import com.example.smarket.Produtos;
+import com.example.smarket.Objetos.Produtos;
 
 import java.util.List;
 
