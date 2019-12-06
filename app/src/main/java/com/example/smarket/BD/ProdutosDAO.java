@@ -1,18 +1,21 @@
-package com.example.smarket;
+package com.example.smarket.BD;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.smarket.Objetos.Produtos;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListaDeComprasDAO {
-    private Conexao conn;
-    private  String TABLE = "LISTADECOMPRAS";
+public class ProdutosDAO {
 
-    public ListaDeComprasDAO(Context context) { conn = new Conexao(context);}
+    private Conexao conn;
+    private  String TABLE = "PRODUTOS";
+
+    public ProdutosDAO(Context context) { conn = new Conexao(context);}
 
     public void salvar(Produtos produto){
         SQLiteDatabase db = conn.getWritableDatabase();
@@ -27,7 +30,7 @@ public class ListaDeComprasDAO {
         ContentValues dados = new ContentValues();
         dados.put("NOME", produto.getNome());
         dados.put("PRECO", produto.getPreco());
-        dados.put("DATAVALIDADE", produto.dataValidade);
+        dados.put("DATAVALIDADE", produto.getDataValidade());
         dados.put("MARCA", produto.getMarca());
 
         return dados;
@@ -37,7 +40,7 @@ public class ListaDeComprasDAO {
 
         List<Produtos> list = new ArrayList<>();
 
-        String sql = "SELECT * FROM LISTADECOMPRAS;";
+        String sql = "SELECT * FROM PRODUTOS;";
         SQLiteDatabase db = conn.getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
 
@@ -45,13 +48,12 @@ public class ListaDeComprasDAO {
 
             int id = cursor.getInt(cursor.getColumnIndex("ID"));
             String nome = cursor.getString(cursor.getColumnIndex("NOME"));
-            double preco = cursor.getDouble(cursor.getColumnIndex("PRECO"));
             String categoria = cursor.getString(cursor.getColumnIndex("CATEGORIA"));
+            double preco = cursor.getDouble(cursor.getColumnIndex("PRECO"));
             String data = cursor.getString(cursor.getColumnIndex("DATAVALIDADE"));
             String marca = cursor.getString(cursor.getColumnIndex("MARCA"));
 
-            list.add(new Produtos(nome, categoria, preco, marca, data));
-
+            list.add(new Produtos(nome,categoria,preco,marca,data));
         }
 
         cursor.close();
@@ -60,13 +62,30 @@ public class ListaDeComprasDAO {
         return list;
     }
 
-    public void apagarProduto(Produtos p) {
-        SQLiteDatabase db = conn.getWritableDatabase();
+    public boolean buscarPorCategoria (String categoria){
 
-        String[] params = { String.valueOf(p.getId()) };
-        db.delete(TABLE,"ID=?", params);
+        SQLiteDatabase db = conn.getReadableDatabase();
+        String[] param = {categoria};
+        String sql = "SELECT * FROM PRODUTOS WHERE CATEGORIA = ?";
+        Cursor cursor = db.rawQuery(sql, param);
 
+        boolean result = cursor.moveToNext();
+
+        cursor.close();
         db.close();
+
+        return result;
+
+    }
+
+    //rever esse ID
+    public void remover(Produtos produto){
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+        String[] param = {String.valueOf(produto.getId())};
+        db.delete(TABLE, "id = ?", param);
+        db.close();
+
     }
 
 }

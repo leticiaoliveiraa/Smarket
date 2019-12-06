@@ -1,4 +1,4 @@
-package com.example.smarket;
+package com.example.smarket.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,11 +11,16 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.smarket.Adapter.AdapterCatalogo;
+import com.example.smarket.BD.ProdutosDAO;
+import com.example.smarket.Objetos.Produtos;
+import com.example.smarket.R;
+
 import java.util.List;
 
 public class CatalogoAdminActivity extends AppCompatActivity {
 
-    private AdapterListaCompras adapter;
+    private AdapterCatalogo adapter;
     private Produtos produto;
     private ProdutosDAO dao = new ProdutosDAO(this);
 
@@ -27,7 +32,7 @@ public class CatalogoAdminActivity extends AppCompatActivity {
 
         List<Produtos> lista = dao.listarProdutos();
 
-        adapter = new AdapterListaCompras(lista, this);
+        adapter = new AdapterCatalogo(lista, this);
 
         ListView listView = findViewById(R.id.listView_catalogo_admin);
         listView.setAdapter(adapter);
@@ -65,9 +70,7 @@ public class CatalogoAdminActivity extends AppCompatActivity {
             Intent intent = new Intent(CatalogoAdminActivity.this, CadastroProdutoActivity.class);
             intent.putExtra("produto", produto);
             startActivity(intent);
-
         }
-        //else if(item.getItemId() == R.id.admin_editar){}
 
         return  super.onContextItemSelected(item);
     }
@@ -82,6 +85,8 @@ public class CatalogoAdminActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
 
         return super.onOptionsItemSelected(item);
+
+
     }
 
     protected void onResume(){

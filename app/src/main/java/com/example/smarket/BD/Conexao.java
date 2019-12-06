@@ -1,4 +1,4 @@
-package com.example.smarket;
+package com.example.smarket.BD;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

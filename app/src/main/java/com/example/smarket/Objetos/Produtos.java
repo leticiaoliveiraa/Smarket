@@ -1,4 +1,4 @@
-package com.example.smarket;
+package com.example.smarket.Objetos;
 
 import java.io.Serializable;
 

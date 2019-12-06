@@ -1,4 +1,4 @@
-package com.example.smarket;
+package com.example.smarket.Activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.smarket.BD.ProdutosDAO;
+import com.example.smarket.Objetos.Produtos;
+import com.example.smarket.R;
 
 public class CadastroProdutoActivity extends AppCompatActivity {
 

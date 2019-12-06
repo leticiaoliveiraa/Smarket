@@ -1,4 +1,4 @@
-package com.example.smarket;
+package com.example.smarket.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,18 +7,19 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.smarket.Produtos;
+import com.example.smarket.Objetos.Produtos;
+import com.example.smarket.R;
 
 import java.util.List;
 
 
-public class AdapterListaCompras extends BaseAdapter {
+public class AdapterCatalogo extends BaseAdapter {
 
 
     private List<Produtos> listaCompras;
     private Context context;
 
-    public AdapterListaCompras(List<Produtos> listaCompras, Context context) {
+    public AdapterCatalogo(List<Produtos> listaCompras, Context context) {
         this.listaCompras = listaCompras;
         this.context = context;
     }

@@ -1,13 +1,11 @@
-package com.example.smarket;
+package com.example.smarket.BD;
 
-import android.database.sqlite.SQLiteOpenHelper;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+
+import com.example.smarket.Objetos.Administradores;
 
 public class AdministradoresDAO {
 
