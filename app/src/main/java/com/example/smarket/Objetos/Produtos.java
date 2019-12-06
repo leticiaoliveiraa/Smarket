@@ -10,6 +10,7 @@ public class Produtos implements Serializable {
     Double preco;
     String marca;
     String dataValidade;
+    private boolean checked = false;
 
     public Produtos(String nome, String categoria, Double preco, String marca, String dataValidade) {
         this.nome = nome;
@@ -65,6 +66,14 @@ public class Produtos implements Serializable {
 
     public void setDataValidade(String dataValidade) {
         this.dataValidade = dataValidade;
+    }
+
+    public boolean isChecked() {
+        return checked;
+    }
+
+    public void setChecked(boolean checked) {
+        this.checked = checked;
     }
 
     @Override
